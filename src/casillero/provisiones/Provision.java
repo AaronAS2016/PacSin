@@ -1,5 +1,7 @@
 package casillero.provisiones;
 
-public interface Provision {
+import casillero.Ficha;
 
+public interface Provision extends Ficha {
+    int obtenerCantidadDeProvision();
 }

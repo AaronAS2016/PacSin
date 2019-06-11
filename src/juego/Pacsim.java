@@ -1,6 +1,5 @@
 package juego;
 
-import casillero.jugador.Jugador;
 import casillero.jugador.Pac;
 import tablero.Direcciones;
 import tablero.Tablero;
@@ -9,7 +8,7 @@ public class Pacsim {
 	
 	
 	private static Tablero tablero;
-	private static Jugador pacsim;
+	private static Pac pacsim;
 	
 	public static void main (String[] args) {
 		iniciarJuego();
@@ -19,7 +18,7 @@ public class Pacsim {
 	}
 	
 	private static void iniciarJuego() {
-		tablero = new Tablero();
+		tablero = new Tablero(4,4);
 		pacsim = new Pac();
 		System.out.println("============= PACSIM =============");
 		System.out.println("Bienvenido a Pacsin para jugar siga las instuccciones \ny muevase por el tablero, trate de encontrar la salida sin que Pac muera");
