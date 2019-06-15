@@ -9,91 +9,88 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class LectorDeTablero {
-	
-	
-	/*TODO: PASAR OBJETOS COMO ATRIBUTOS EN VEZ DE GENERADOS EN EL MAIN PARA EVITAR PASARLO COMO ATRIBUUTO EN CADA METÓDO*/
-	
-	
-	public static void main(String[] args) throws IOException {
+
+
+	private BufferedReader lectorDeTablero;
+
+	public LectorDeTablero(){
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("resources/tablero.txt"));
-			String line = br.readLine();
-			System.out.println(line);
-			controlPath(br, line);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			this.lectorDeTablero = new BufferedReader(new FileReader("resources/tablero.txt"));
+		}catch (FileNotFoundException e){
+			throw new Error("El aFileNotFoundExceptionrchivo de configuracion del tablero, no fue encontrado");
 		}
 	}
 	
-	public static Tablero leerTablero() {
-		
+
+	public Tablero leerTablero() throws IOException {
+		String primeraLinea = this.lectorDeTablero.readLine();
+
 		return new Tablero(5,4);
 	}
-	
-	private static void controlPath(BufferedReader br, String path) throws IOException {
-		switch (path) {
+
+
+	private void analizarSecciones(String nombreDeSeccion) throws IOException {
+		switch (nombreDeSeccion) {
 		case "[TABLERO]":
-			analizarTablero(br, path);
+			analizarTablero();
 			break;
 		case "[MINAS]":
-			analizarMinas(br, path);
+			analizarMinas();
 			break;
 		case "[PROVISIONES]":
-			analizarProvisiones(br, path);
+			analizarProvisiones();
 			break;
 		case "[UBICACION_PROVISIONES]":
-			analizarUbicacionProvisiones(br, path);
+			analizarUbicacionProvisiones();
 			break;
 		default:
 			throw new Error("Error en el archivo de configuración");
 		}
 	}
 
-	private static void analizarUbicacionProvisiones(BufferedReader br, String path) throws IOException {
+	private void analizarUbicacionProvisiones() throws IOException {
 		System.out.println("UBICAMOS LAS PROVISIONES");
 		
 	}
 
-	private static void analizarProvisiones(BufferedReader br, String path) throws IOException {
+	private void analizarProvisiones() throws IOException {
 		System.out.println("ARRANCAMOS CON PROVISIONES");
 		Map<String, String> provisiones = new TreeMap<>();
-		String valorDelTablero = br.readLine();
+		String valorDelTablero = this.lectorDeTablero.readLine();
 		while(valorDelTablero.charAt(0) != '[' && valorDelTablero != null) {
 			String[] llaveValor = valorDelTablero.split("=");
 			provisiones.put(llaveValor[0], llaveValor[1]);
-			valorDelTablero = br.readLine();
+			valorDelTablero = this.lectorDeTablero.readLine();
 		}
 		System.out.println(Arrays.toString(provisiones.values().toArray()));
 		/*TODO : TRABAJAR CON EL ARRAY PARA OBTENER LAS PROVISIONES*/
-		controlPath(br,valorDelTablero);
+		analizarSecciones(valorDelTablero);
 		
 	}
 
-	private static void analizarMinas(BufferedReader br, String path) throws IOException {
+	private void analizarMinas() throws IOException {
 		
-		String minas = br.readLine();
+		String minas = lectorDeTablero.readLine();
 		String[] posicionDeMinas = minas.split("=");
 		if(posicionDeMinas[0].equals("B")) {
-			System.out.println("EMPEZAMOS CON MINAS");
 			String[] ubicacionDeMinas =  posicionDeMinas[1].split(",");
 			for(String ubicacion : ubicacionDeMinas) {
 				System.out.println(ubicacion);
 				/*TODO : AGREGAR MINA AL TABLERO*/
 			}
 		}
-		controlPath(br, br.readLine());
+		analizarSecciones(this.lectorDeTablero.readLine());
 		
 	}
 
-	private static void analizarTablero(BufferedReader br, String path) throws IOException {
+	private void analizarTablero() throws IOException {
 		int filas = 4;
 		int columnas = 4;
 		int ubicacionDeLaSalida = 8;
 		int ubicacionDeLaEntrada = 1;
 		String paredes = "000000000000";
 
-		String valorDelTablero = br.readLine();
+		String valorDelTablero = this.lectorDeTablero.readLine();
 
 		
 		while(valorDelTablero.charAt(0) != '[' && valorDelTablero != null) {
@@ -118,7 +115,7 @@ public class LectorDeTablero {
 					paredes = valor;
 					break;
 			}
-			valorDelTablero = br.readLine();
+			valorDelTablero = lectorDeTablero.readLine();
 		}
 		
 		System.out.println(filas);
@@ -130,11 +127,11 @@ public class LectorDeTablero {
 		
 		Tablero tablero = new Tablero(filas,columnas);
 		
-		controlPath(br, valorDelTablero);
+		analizarSecciones(valorDelTablero);
 	}
 	
 	
-	public static void generarParedes(String paredes) {
+	public void generarParedes(String paredes) {
 		
 	}
 	
