@@ -11,6 +11,11 @@ public class ProvisionCompuesta implements Provision {
         provisiones = new ArrayList<>();
     }
 
+
+    public void agregarProvision(Provision provision){
+        this.provisiones.add(provision);
+    }
+
     @Override
     public int obtenerCantidadDeProvision() {
         return 0;

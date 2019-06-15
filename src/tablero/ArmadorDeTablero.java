@@ -1,11 +1,26 @@
 package tablero;
 
+import casillero.Casillero;
+import casillero.minas.Mina;
+import casillero.provisiones.Escudo;
+import casillero.provisiones.Provision;
+import casillero.provisiones.ProvisionCompuesta;
+import casillero.provisiones.Vitamina;
+import java.util.Map;
+
 public class ArmadorDeTablero {
 
     private LectorDeTablero lectorDeTablero;
     private Tablero tablero;
-    private int[] ubicacionDeLaEntrada;
+    private int[] ubicacionDeLaSalida;
     private int[] ubicacionDelJugador;
+
+    private Map<String, String> provisiones;
+    private Map<String, String> ubicacionDeProvisiones;
+
+    private int columnas;
+    private int filas;
+
 
     public ArmadorDeTablero(){
         this.lectorDeTablero = new LectorDeTablero();
@@ -13,23 +28,122 @@ public class ArmadorDeTablero {
         adaptarTablero();
     }
 
+
+    public Tablero obtenerTablero(){
+        return this.tablero;
+    }
+
+    public int[] obtenerCoordenadasDeLaEntrada(){
+        return this.ubicacionDelJugador;
+    }
+
+    public int[] obtenerCoordenadasDeLaSalida(){
+        return this.ubicacionDeLaSalida;
+    }
+
     private void adaptarTablero() {
-        int filas = this.lectorDeTablero.obtenerFilasDelTablero();
-        int columnas = this.lectorDeTablero.obtenerColumnasDelTablero();
+        filas = this.lectorDeTablero.obtenerFilasDelTablero();
+        columnas = this.lectorDeTablero.obtenerColumnasDelTablero();
+
+        String ubicacionDeParedes = this.lectorDeTablero.obtenerParedes();
 
         this.tablero = new Tablero(filas,columnas);
 
-        this.ubicacionDeLaEntrada = this.obtenerEntrada(this.lectorDeTablero.obtenerUbicacionDeLaEntrada(), columnas);
+        this.ubicacionDelJugador = this.obtenerCoordenadasPorIndice(this.lectorDeTablero.obtenerUbicacionDeLaEntrada(), columnas);
+        this.ubicacionDeLaSalida = this.obtenerCoordenadasPorIndice(this.lectorDeTablero.obtenerUbicacionDeSalida(), columnas);
+
+        String[] ubicacionDeMinas = this.lectorDeTablero.obtenerUbicacionDeMinas();
+
+        generarParedes(ubicacionDeParedes);
+        agregarMinas(ubicacionDeMinas);
+
+        provisiones = this.lectorDeTablero.obtenerProvisiones();
+
+        ubicacionDeProvisiones = this.lectorDeTablero.obtenerUbicacionDeProvisiones();
+
+        agregarProvisiones();
+    }
+
+    private void agregarProvisiones() {
+
+
+        for (String nombreProvision: provisiones.keySet()){
+            String llaveProvision = nombreProvision;
+            String tipoDeProvisiones = provisiones.get(nombreProvision);
+            String[] elementosDeLaProvision = tipoDeProvisiones.split(",");
+            Provision provision = null;
+
+            provision = obtenerProvisionPorCantidadDeElementos(elementosDeLaProvision);
+
+            for (String ubicacionProvision : ubicacionDeProvisiones.get(llaveProvision).split(",")){
+                int coordenadas[] = this.obtenerCoordenadasPorIndice(Integer.parseInt(ubicacionProvision), columnas);
+                this.tablero.agregarFichas(coordenadas[0], coordenadas[1], provision);
+            }
+
+        }
 
     }
 
-    public Tablero obtenerTablero(){
+    private Provision obtenerProvisionPorTipo(String tipoDeProvision){
+        if(tipoDeProvision.equals("E")){
+            return new Escudo();
+        }else if(tipoDeProvision.equals("V")){
+            return new Vitamina();
+        }else{
 
+            String[] elementosDeLaProvision = provisiones.get(tipoDeProvision).split(",");
+            Provision provision = obtenerProvisionPorCantidadDeElementos(elementosDeLaProvision);
+            return provision;
 
-        return null;
+        }
     }
 
-    public int[] obtenerEntrada(int posicion, int cantidadDeColumnas) {
+    private Provision obtenerProvisionPorCantidadDeElementos(String[] elementosDeLaProvision){
+
+        Provision provision = null;
+        if(elementosDeLaProvision.length >= 1){
+            ProvisionCompuesta provisionCompuesta = new ProvisionCompuesta();
+            for (String tipoDeProvision : elementosDeLaProvision){
+                provisionCompuesta.agregarProvision(obtenerProvisionPorTipo(tipoDeProvision));
+            }
+            provision = provisionCompuesta;
+        }
+        else{
+            provision = obtenerProvisionPorTipo(elementosDeLaProvision[0]);
+        }
+
+        return provision;
+
+    }
+
+
+    private void agregarMinas(String[] ubicacionDeMinas) {
+
+        for (String mina : ubicacionDeMinas){
+            int[] coordenadas = this.obtenerCoordenadasPorIndice(Integer.parseInt(mina), columnas);
+            this.tablero.agregarFichas(coordenadas[0], coordenadas[1], new Mina());
+        }
+
+    }
+
+    private void generarParedes(String ubicacionDeParedes) {
+
+        int posicion = 1;
+        for(char hayPared : ubicacionDeParedes.toCharArray()){
+            int[] coordenadas = this.obtenerCoordenadasPorIndice(posicion, columnas);
+            if(hayPared == '0'){
+                this.tablero.agregarCasillero(coordenadas[0], coordenadas[1], new Casillero(false));
+
+            }else{
+                this.tablero.agregarCasillero(coordenadas[0], coordenadas[1], new Casillero(true));
+            }
+            posicion++;
+        }
+
+    }
+
+
+    private int[] obtenerCoordenadasPorIndice(int posicion, int cantidadDeColumnas) {
 
 
         int[] coordenadas = new int[2];
@@ -38,14 +152,8 @@ public class ArmadorDeTablero {
         int ubicacionColumna = (posicion % cantidadDeColumnas) == 0 ? cantidadDeColumnas : (posicion % cantidadDeColumnas);
 
 
-        coordenadas[0] = ubicacionFila -1;
-        coordenadas[1] = ubicacionColumna -1;
-
-        System.out.println("Cantidad de columnas: " + cantidadDeColumnas);
-
-        System.out.println("Ubicacion en indice de la grilla: " + posicion);
-        System.out.println("Ubicacion en fila: " + ubicacionFila);
-        System.out.println("Ubicacion en columnas: " + ubicacionColumna);
+        coordenadas[0] = ubicacionFila;
+        coordenadas[1] = ubicacionColumna;
 
         return coordenadas;
 

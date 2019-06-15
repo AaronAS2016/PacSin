@@ -1,6 +1,7 @@
 package tablero;
 
 import casillero.Casillero;
+import casillero.Ficha;
 
 public class Tablero {
 	
@@ -20,8 +21,12 @@ public class Tablero {
 		return this.casilleros[fila][columna];
 	}
 	
-	public void agregarCasillero(int posicion , Casillero casillero) {
+	public void agregarCasillero(int fila, int columna , Casillero casillero) {
 		
+	}
+
+	public void agregarFichas(int fila, int columna, Ficha ficha){
+
 	}
 
 	public void imprimirEnPantalla() {

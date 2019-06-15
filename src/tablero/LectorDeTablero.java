@@ -27,7 +27,7 @@ public class LectorDeTablero {
 		try {
 			this.lectorDeTablero = new BufferedReader(new FileReader("resources/tablero.txt"));
 		}catch (FileNotFoundException e){
-			throw new Error("El aFileNotFoundExceptionrchivo de configuracion del tablero, no fue encontrado");
+			throw new Error("El archivo de configuracion del tablero no fue encontrado");
 		}
 	}
 	
@@ -98,10 +98,6 @@ public class LectorDeTablero {
 		String[] posicionDeMinas = minas.split("=");
 		if(posicionDeMinas[0].equals("B")) {
 			String[] ubicacionDeMinas =  posicionDeMinas[1].split(",");
-			for(String ubicacion : ubicacionDeMinas) {
-				System.out.println(ubicacion);
-				/*TODO : AGREGAR MINA AL TABLERO*/
-			}
 			this.ubicacionDeMinas = ubicacionDeMinas;
 		}
 		analizarSecciones(this.lectorDeTablero.readLine());
@@ -109,7 +105,6 @@ public class LectorDeTablero {
 	}
 
 	private void analizarTablero() throws IOException {
-
 
 		/**Valores de fallback*/
 		int filas = 4;
