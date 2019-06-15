@@ -18,11 +18,13 @@ public class Main {
 	}
 	
 	private static void iniciarJuego() {
+		pacsim = new PacSim();
+
 		System.out.println("============= PACSIM =============");
 		System.out.println("Bienvenido a Pacsin para jugar siga las instuccciones \ny muevase por el tablero, trate de encontrar la salida sin que Pac muera");
 		System.out.println("Suerte :)");
 		imprimirSeparador();
-		pacsim = new PacSim();
+
 	}
 	
 	
@@ -36,8 +38,8 @@ public class Main {
 	}
 	
 	private static void imprimirEstadistica() {
-		System.out.println("La cantida de vidas del Pac: " + 5);
-		System.out.println("La cantidad de escudo del Pac es de:" + 5);
+		System.out.println("La cantida de vidas del Pac: " + pacsim.obtenerVidaDelJugador());
+		System.out.println("La cantidad de escudo del Pac es de:" + pacsim.obtenerCantidadDeEscudoDelJugador());
 		imprimirSeparador();
 
 	}
@@ -47,7 +49,6 @@ public class Main {
 	}
 	
 	private static void moverJugador(Direcciones direccion) {
-
 
 	}
 	

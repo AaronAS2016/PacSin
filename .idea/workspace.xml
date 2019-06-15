@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f00fc1dd-cea5-4b7b-b1c5-fcb6a1bd071b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/casillero/Casillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/casillero/Casillero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/casillero/provisiones/ProvisionCompuesta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/casillero/provisiones/ProvisionCompuesta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tablero/ArmadorDeTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tablero/ArmadorDeTablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tablero/LectorDeTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tablero/LectorDeTablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/casillero/jugador/Pac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/casillero/jugador/Pac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/juego/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/juego/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tablero/PacSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tablero/PacSim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tablero/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tablero/Tablero.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -23,47 +20,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tablero/LectorDeTablero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="168" column="21" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4155#4156#0" expanded="true" />
-                <element signature="e#4184#4185#0" expanded="true" />
-                <element signature="e#4223#4224#0" expanded="true" />
-                <element signature="e#4255#4256#0" expanded="true" />
-                <element signature="e#4293#4294#0" expanded="true" />
-                <element signature="e#4324#4325#0" expanded="true" />
-                <element signature="e#4365#4366#0" expanded="true" />
-                <element signature="e#4399#4400#0" expanded="true" />
-                <element signature="e#4430#4431#0" expanded="true" />
-                <element signature="e#4451#4452#0" expanded="true" />
-                <element signature="e#4500#4501#0" expanded="true" />
-                <element signature="e#4530#4531#0" expanded="true" />
-                <element signature="e#4571#4572#0" expanded="true" />
-                <element signature="e#4596#4597#0" expanded="true" />
-                <element signature="e#4646#4647#0" expanded="true" />
-                <element signature="e#4682#4683#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/tablero.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tablero/Tablero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="41" column="1" selection-start-line="5" selection-start-column="21" selection-end-line="41" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#420#421#0" expanded="true" />
@@ -74,32 +34,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/casillero/Casillero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tablero/PacSim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state relative-caret-position="315">
+              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
               <folding>
                 <element signature="e#217#218#0" expanded="true" />
                 <element signature="e#248#249#0" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#706#707#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+                <element signature="e#796#797#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/casillero/jugador/Pac.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/juego/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="195">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -107,9 +71,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tablero/ArmadorDeTablero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="225">
+              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#473#474#0" expanded="true" />
                 <element signature="e#508#509#0" expanded="true" />
                 <element signature="e#559#560#0" expanded="true" />
@@ -157,13 +122,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/juego/Pacsim.java" />
-        <option value="$PROJECT_DIR$/src/juego/Main.java" />
         <option value="$PROJECT_DIR$/src/tablero/Tablero.java" />
         <option value="$PROJECT_DIR$/src/casillero/Casillero.java" />
         <option value="$PROJECT_DIR$/src/tablero/LectorDeTablero.java" />
         <option value="$PROJECT_DIR$/src/casillero/provisiones/ProvisionCompuesta.java" />
         <option value="$PROJECT_DIR$/src/tablero/ArmadorDeTablero.java" />
+        <option value="$PROJECT_DIR$/src/casillero/jugador/Pac.java" />
         <option value="$PROJECT_DIR$/src/tablero/PacSim.java" />
+        <option value="$PROJECT_DIR$/src/juego/Main.java" />
       </list>
     </option>
   </component>
@@ -201,6 +167,13 @@
               <item name="PacSin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="casillero" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PacSin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PacSin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="casillero" type="462c0819:PsiDirectoryNode" />
+              <item name="jugador" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PacSin" type="b2602c69:ProjectViewProjectNode" />
@@ -295,7 +268,7 @@
     <frame x="0" y="30" width="1366" height="738" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3202934" visible="true" weight="0.1719697" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3202934" visible="true" weight="0.1719697" />
       <window_info id="Structure" order="1" sideWeight="0.6797066" side_tool="true" weight="0.1719697" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -304,7 +277,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32840723" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32840723" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -352,42 +325,22 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/tablero.txt">
+    <entry file="file://$PROJECT_DIR$/src/casillero/provisiones/ProvisionCompuesta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/casillero/Casillero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/juego/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tablero/Tablero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="41" column="1" selection-start-line="5" selection-start-column="21" selection-end-line="41" selection-end-column="1" />
+        <state relative-caret-position="210">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tablero/LectorDeTablero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
+        <state relative-caret-position="2520">
           <caret line="168" column="21" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -411,24 +364,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/casillero/provisiones/ProvisionCompuesta.java">
+    <entry file="file://$PROJECT_DIR$/resources/tablero.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        <state relative-caret-position="90">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/casillero/Casillero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tablero/Tablero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
           <folding>
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tablero/ArmadorDeTablero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="225">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#473#474#0" expanded="true" />
             <element signature="e#508#509#0" expanded="true" />
             <element signature="e#559#560#0" expanded="true" />
@@ -439,14 +406,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/casillero/jugador/Pac.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tablero/PacSim.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        <state relative-caret-position="315">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="e#217#218#0" expanded="true" />
             <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/juego/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>
