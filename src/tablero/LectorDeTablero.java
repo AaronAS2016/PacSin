@@ -4,11 +4,21 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class LectorDeTablero {
+
+
+
+	private int filasDelTablero;
+	private int columnasDelTablero;
+	private int ubicacionDeSalida;
+	private int ubicacionDeLaEntrada;
+	private String paredes;
+	private String[] ubicacionDeMinas;
+	private Map<String, String> provisiones;
+	private Map<String, String> ubicacionDeProvisiones;
 
 
 	private BufferedReader lectorDeTablero;
@@ -22,10 +32,18 @@ public class LectorDeTablero {
 	}
 	
 
-	public Tablero leerTablero() throws IOException {
-		String primeraLinea = this.lectorDeTablero.readLine();
-
-		return new Tablero(5,4);
+	public void leerTablero() {
+		String primeraSeccion = null;
+		try {
+			primeraSeccion = this.lectorDeTablero.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			analizarSecciones(primeraSeccion);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 
@@ -49,12 +67,18 @@ public class LectorDeTablero {
 	}
 
 	private void analizarUbicacionProvisiones() throws IOException {
-		System.out.println("UBICAMOS LAS PROVISIONES");
-		
+		Map<String, String> provisiones = new TreeMap<>();
+		String valorDelTablero = this.lectorDeTablero.readLine();
+		while(valorDelTablero != null && valorDelTablero.charAt(0) != '[') {
+			String[] llaveValor = valorDelTablero.split("=");
+			provisiones.put(llaveValor[0], llaveValor[1]);
+			valorDelTablero = this.lectorDeTablero.readLine();
+		}
+
+		this.ubicacionDeProvisiones = provisiones;
 	}
 
 	private void analizarProvisiones() throws IOException {
-		System.out.println("ARRANCAMOS CON PROVISIONES");
 		Map<String, String> provisiones = new TreeMap<>();
 		String valorDelTablero = this.lectorDeTablero.readLine();
 		while(valorDelTablero.charAt(0) != '[' && valorDelTablero != null) {
@@ -62,8 +86,8 @@ public class LectorDeTablero {
 			provisiones.put(llaveValor[0], llaveValor[1]);
 			valorDelTablero = this.lectorDeTablero.readLine();
 		}
-		System.out.println(Arrays.toString(provisiones.values().toArray()));
-		/*TODO : TRABAJAR CON EL ARRAY PARA OBTENER LAS PROVISIONES*/
+
+		this.provisiones = provisiones;
 		analizarSecciones(valorDelTablero);
 		
 	}
@@ -78,12 +102,16 @@ public class LectorDeTablero {
 				System.out.println(ubicacion);
 				/*TODO : AGREGAR MINA AL TABLERO*/
 			}
+			this.ubicacionDeMinas = ubicacionDeMinas;
 		}
 		analizarSecciones(this.lectorDeTablero.readLine());
 		
 	}
 
 	private void analizarTablero() throws IOException {
+
+
+		/**Valores de fallback*/
 		int filas = 4;
 		int columnas = 4;
 		int ubicacionDeLaSalida = 8;
@@ -100,10 +128,10 @@ public class LectorDeTablero {
 			
 			switch (llave) {
 				case "M":
-					filas= Integer.parseInt(valor);
+					columnas= Integer.parseInt(valor);
 					break;
 				case "N":
-					columnas= Integer.parseInt(valor);
+					filas= Integer.parseInt(valor);
 					break;
 				case "S":
 					ubicacionDeLaSalida = Integer.parseInt(valor);
@@ -117,23 +145,46 @@ public class LectorDeTablero {
 			}
 			valorDelTablero = lectorDeTablero.readLine();
 		}
-		
-		System.out.println(filas);
-		System.out.println(columnas);
-		System.out.println(ubicacionDeLaEntrada);
-		System.out.println(ubicacionDeLaSalida);
-		System.out.println(paredes);
-		System.out.println(valorDelTablero);
-		
-		Tablero tablero = new Tablero(filas,columnas);
-		
+
+		this.filasDelTablero = filas;
+		this.columnasDelTablero = columnas;
+		this.ubicacionDeLaEntrada = ubicacionDeLaEntrada;
+		this.ubicacionDeSalida = ubicacionDeLaSalida;
+		this.paredes = paredes;
+
 		analizarSecciones(valorDelTablero);
 	}
-	
-	
-	public void generarParedes(String paredes) {
-		
+
+	public int obtenerFilasDelTablero() {
+		return filasDelTablero;
 	}
-	
-	
+
+	public int obtenerColumnasDelTablero() {
+		return columnasDelTablero;
+	}
+
+	public int obtenerUbicacionDeSalida() {
+		return ubicacionDeSalida;
+	}
+
+	public int obtenerUbicacionDeLaEntrada() {
+		return ubicacionDeLaEntrada;
+	}
+
+	public String obtenerParedes() {
+		return paredes;
+	}
+
+	public String[] obtenerUbicacionDeMinas() {
+		return ubicacionDeMinas;
+	}
+
+	public Map<String, String> obtenerProvisiones() {
+		return provisiones;
+	}
+
+	public Map<String, String> obtenerUbicacionDeProvisiones() {
+		return ubicacionDeProvisiones;
+	}
+
 }

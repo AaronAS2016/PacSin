@@ -2,14 +2,14 @@ package juego;
 
 import casillero.jugador.Pac;
 import tablero.Direcciones;
+import tablero.PacSim;
 import tablero.Tablero;
 
-public class Pacsim {
-	
-	
-	private static Tablero tablero;
-	private static Pac pacsim;
-	
+public class Main {
+
+
+	private static PacSim pacsim;
+
 	public static void main (String[] args) {
 		iniciarJuego();
 		imprimirEstadistica();
@@ -18,12 +18,11 @@ public class Pacsim {
 	}
 	
 	private static void iniciarJuego() {
-		tablero = new Tablero(4,4);
-		pacsim = new Pac();
 		System.out.println("============= PACSIM =============");
 		System.out.println("Bienvenido a Pacsin para jugar siga las instuccciones \ny muevase por el tablero, trate de encontrar la salida sin que Pac muera");
 		System.out.println("Suerte :)");
 		imprimirSeparador();
+		pacsim = new PacSim();
 	}
 	
 	
@@ -37,18 +36,19 @@ public class Pacsim {
 	}
 	
 	private static void imprimirEstadistica() {
-		System.out.println("La cantida de vidas del Pac: " + pacsim.obtenerVidas());
-		System.out.println("La cantidad de escudo del Pac es de:" + pacsim.obtenerEscudo());
+		System.out.println("La cantida de vidas del Pac: " + 5);
+		System.out.println("La cantidad de escudo del Pac es de:" + 5);
 		imprimirSeparador();
 
 	}
 	
 	private static void imprimirTablero() {
-		tablero.imprimirEnPantalla();
+
 	}
 	
 	private static void moverJugador(Direcciones direccion) {
-		tablero.moverJugador(direccion);
+
+
 	}
 	
 	private static void imprimirSeparador() {
