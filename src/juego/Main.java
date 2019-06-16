@@ -20,11 +20,13 @@ public class Main {
 	public static void main (String[] args) {
 		iniciarJuego();
 		imprimirEstadistica();
-		imprimirControles();
 		imprimirTablero();
+		imprimirControles();
+
 		BufferedReader entradaDelUsuario =
 				new BufferedReader(new InputStreamReader(System.in));
 		while(pacsim.termino()){
+
 			String direccion = null;
 			try {
 				direccion = entradaDelUsuario.readLine();
@@ -51,7 +53,9 @@ public class Main {
 	
 	
 	private static void imprimirControles() {
+		imprimirSeparador();
 		System.out.println("Ingrese la letra de la direccion donde quiera ir: ");
+		imprimirSeparador();
 		System.out.println("A - Izquierda");
 		System.out.println("S - Abajo");
 		System.out.println("W - Arriba");
@@ -59,6 +63,7 @@ public class Main {
 	}
 	
 	private static void imprimirEstadistica() {
+		System.out.println("==========INFORMACION DEL PAC =============");
 		System.out.println("La cantida de vidas del Pac: " + pacsim.obtenerVidaDelJugador());
 		System.out.println("La cantidad de escudo del Pac es de:" + pacsim.obtenerCantidadDeEscudoDelJugador());
 		imprimirSeparador();
@@ -126,19 +131,22 @@ public class Main {
 
 		if (direccion.equals("A")){
 			System.out.println("El jugador se mueve hacia la izquierda");
+			pacsim.moverJugadorIzquierda();
 		}else if(direccion.equals("D")){
 			System.out.println("El jugador se mueve hacia la derecha");
+			pacsim.moverJugadorDerecha();
 		}else if(direccion.equals("W")){
 			System.out.println("El jugador se mueve hacia arriba");
+			pacsim.moverJugadorArriba();
 		}else if(direccion.equals("S")){
 			System.out.println("El jugador se mueve hacia abajo");
+			pacsim.moverJugadorAbajo();
 		}else{
 			System.out.println("Por favor ingrese un movimiento valido");
 		}
 	}
 	
 	private static void imprimirSeparador() {
-		System.out.println();
 		System.out.println();
 	}
 	

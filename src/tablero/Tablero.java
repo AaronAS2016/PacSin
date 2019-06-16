@@ -18,7 +18,7 @@ public class Tablero {
 	
 	
 	public Casillero obtenerCasillero(int fila, int columna) {
-		return this.casilleros[fila][columna];
+		return this.casilleros[fila-1][columna-1];
 	}
 	
 	public void agregarCasillero(int fila, int columna , Casillero casillero) {
@@ -31,6 +31,14 @@ public class Tablero {
 
 	public Casillero[][] obtenerCasilleros(){
 		return this.casilleros;
+	}
+
+	public int obtenerCantidadDeFilas(){
+		return this.casilleros.length;
+	}
+
+	public int obtenerCantidadDeColumnas(){
+		return this.casilleros[0].length;
 	}
 
 }

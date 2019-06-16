@@ -31,7 +31,7 @@ public class PacSim {
     }
 
     public boolean termino(){
-        return pac.estaVivo();
+        return (pac.estaVivo() && !(ubicacionDeLaSalida == ubicacionDelJugador));
     }
 
     public Tablero obtenerTablero(){
@@ -45,4 +45,31 @@ public class PacSim {
         return this.ubicacionDeLaSalida;
     }
 
+    public void moverJugadorIzquierda() {
+        if(ubicacionDelJugador[1] - 1 > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] - 1 ).estaLibre()){
+            ubicacionDelJugador[1]--;
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha();
+        }
+    }
+
+    public void moverJugadorDerecha() {
+        if ((ubicacionDelJugador[1] + 1) < tablero.obtenerCantidadDeColumnas() && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] + 1).estaLibre()){
+            ubicacionDelJugador[1]++;
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha();
+        }
+    }
+
+    public void moverJugadorArriba() {
+        if ((ubicacionDelJugador[0] - 1) > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0] - 1, ubicacionDelJugador[1]).estaLibre()){
+            ubicacionDelJugador[0]--;
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha();
+        }
+    }
+
+    public void moverJugadorAbajo() {
+        if ((ubicacionDelJugador[0] + 1) <= tablero.obtenerCantidadDeFilas() && tablero.obtenerCasillero(ubicacionDelJugador[0] + 1, ubicacionDelJugador[1]).estaLibre()){
+            ubicacionDelJugador[0]++;
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha();
+        }
+    }
 }
