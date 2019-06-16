@@ -1,9 +1,16 @@
 package juego;
 
+import casillero.Casillero;
 import casillero.jugador.Pac;
 import tablero.Direcciones;
 import tablero.PacSim;
 import tablero.Tablero;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.SQLOutput;
+import java.util.Arrays;
 
 public class Main {
 
@@ -15,6 +22,21 @@ public class Main {
 		imprimirEstadistica();
 		imprimirControles();
 		imprimirTablero();
+		BufferedReader entradaDelUsuario =
+				new BufferedReader(new InputStreamReader(System.in));
+		while(pacsim.termino()){
+			String direccion = null;
+			try {
+				direccion = entradaDelUsuario.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			moverJugador(direccion.toUpperCase());
+			imprimirEstadistica();
+			imprimirTablero();
+			System.out.println("Ingrese la letra de la direccion donde quiera ir: ");
+		}
 	}
 	
 	private static void iniciarJuego() {
@@ -34,7 +56,6 @@ public class Main {
 		System.out.println("S - Abajo");
 		System.out.println("W - Arriba");
 		System.out.println("D - Derecha");
-		imprimirSeparador();
 	}
 	
 	private static void imprimirEstadistica() {
@@ -45,11 +66,75 @@ public class Main {
 	}
 	
 	private static void imprimirTablero() {
+		Tablero tablero = pacsim.obtenerTablero();
+		int[] coordenadasDelJugador = pacsim.obtenerPosicionDelJugador();
+		int[] coordenadasDeLaSalida = pacsim.obtenerPosicionDeLaSalida();
+
+		Casillero[][] casilleros = tablero.obtenerCasilleros();
+		String[][] tableroImprimibles = new String[casilleros.length][casilleros[0].length];
+		String columnas = "   |";
+
+		for (int i = 0; i < casilleros.length; i++){
+			for (int j = 0; j < casilleros[i].length; j++ ){
+				if(i == 0){
+					columnas= columnas + (j+1) + "|";
+				}
+
+				if(i == (coordenadasDelJugador[0] - 1) && j == (coordenadasDelJugador[1] - 1)){
+					tableroImprimibles[i][j] = "J";
+				}else if(i == coordenadasDeLaSalida[0] - 1 && j == coordenadasDeLaSalida[1] -1 ){
+					tableroImprimibles[i][j] = "S";
+				}else{
+					if (casilleros[i][j].estaLibre()) {
+						tableroImprimibles[i][j] = " ";
+					}else{
+						tableroImprimibles[i][j] = "X";
+					}
+				}
+
+			}
+		}
+
+		System.out.println("===========INFORMACION DEL TABLERO ========");
+
+
+		System.out.println(columnas);
+
+		for (int i = 0; i < casilleros.length; i++){
+			String fila = "|" + (i+1);
+			if(i >= 9){
+				fila = fila + "|";
+			}else{
+				fila = fila + " |";
+			}
+			for (int j = 0; j < casilleros[i].length; j++){
+				fila = fila + tableroImprimibles[i][j];
+			}
+			System.out.println(fila );
+		}
+
+
+
+
+
+
+
 
 	}
 	
-	private static void moverJugador(Direcciones direccion) {
+	private static void moverJugador(String direccion) {
 
+		if (direccion.equals("A")){
+			System.out.println("El jugador se mueve hacia la izquierda");
+		}else if(direccion.equals("D")){
+			System.out.println("El jugador se mueve hacia la derecha");
+		}else if(direccion.equals("W")){
+			System.out.println("El jugador se mueve hacia arriba");
+		}else if(direccion.equals("S")){
+			System.out.println("El jugador se mueve hacia abajo");
+		}else{
+			System.out.println("Por favor ingrese un movimiento valido");
+		}
 	}
 	
 	private static void imprimirSeparador() {

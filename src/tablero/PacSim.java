@@ -6,7 +6,7 @@ public class PacSim {
 
     private ArmadorDeTablero armadorDeTablero;
 
-    private int[] ubicacionDeLaEntrada;
+    private int[] ubicacionDelJugador;
     private int[] ubicacionDeLaSalida;
     private Tablero tablero;
     private Pac pac = new Pac();
@@ -18,7 +18,7 @@ public class PacSim {
     private void iniciarPacsim() {
         this.armadorDeTablero =  new ArmadorDeTablero();
         this.tablero = armadorDeTablero.obtenerTablero();
-        this.ubicacionDeLaEntrada = armadorDeTablero.obtenerCoordenadasDeLaEntrada();
+        this.ubicacionDelJugador = armadorDeTablero.obtenerCoordenadasDeLaEntrada();
         this.ubicacionDeLaSalida = armadorDeTablero.obtenerCoordenadasDeLaSalida();
     }
 
@@ -29,4 +29,20 @@ public class PacSim {
     public int obtenerCantidadDeEscudoDelJugador(){
         return pac.obtenerEscudo();
     }
+
+    public boolean termino(){
+        return pac.estaVivo();
+    }
+
+    public Tablero obtenerTablero(){
+        return this.tablero;
+    }
+    public int[] obtenerPosicionDelJugador(){
+        return this.ubicacionDelJugador;
+    }
+
+    public int[] obtenerPosicionDeLaSalida(){
+        return this.ubicacionDeLaSalida;
+    }
+
 }

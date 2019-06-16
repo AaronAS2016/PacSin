@@ -22,21 +22,15 @@ public class Tablero {
 	}
 	
 	public void agregarCasillero(int fila, int columna , Casillero casillero) {
-		
+		this.casilleros[fila-1][columna-1] = casillero;
 	}
 
 	public void agregarFichas(int fila, int columna, Ficha ficha){
-
+		this.casilleros[fila-1][columna-1].agregarFichas(ficha);
 	}
 
-	public void imprimirEnPantalla() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void moverJugador(Direcciones direccion) {
-		// TODO Auto-generated method stub
-		
+	public Casillero[][] obtenerCasilleros(){
+		return this.casilleros;
 	}
 
 }
