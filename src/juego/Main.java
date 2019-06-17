@@ -64,12 +64,25 @@ public class Main {
 	
 	private static void imprimirControles() {
 		imprimirSeparador();
+		System.out.println(" ====== DATOS DEL TABLERO =========");
+		System.out.println("J - Ubicacion del jugador");
+		System.out.println("S - Salida del tablero");
+		System.out.println("X - Pared");
+
+		imprimirSeparador();
+
+		System.out.println("En el tablero pueden haber minas o provisiones escondidas, tenga cuidado!");
+
+		imprimirSeparador();
+
 		System.out.println("Ingrese la letra de la direccion donde quiera ir: ");
 		imprimirSeparador();
 		System.out.println("A - Izquierda");
 		System.out.println("S - Abajo");
 		System.out.println("W - Arriba");
 		System.out.println("D - Derecha");
+
+
 	}
 	
 	private static void imprimirEstadistica() {
