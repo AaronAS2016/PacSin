@@ -25,7 +25,7 @@ public class Main {
 
 		BufferedReader entradaDelUsuario =
 				new BufferedReader(new InputStreamReader(System.in));
-		while(pacsim.termino()){
+		while(!pacsim.termino()){
 
 			String direccion = null;
 			try {

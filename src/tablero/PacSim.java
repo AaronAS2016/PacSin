@@ -37,10 +37,7 @@ public class PacSim {
     }
 
     public boolean termino(){
-        boolean termino;
-
-
-        termino = (!pac.estaVivo() || ubicacionDeLaSalida == ubicacionDelJugador);
+        boolean termino = (!pac.estaVivo() || ubicacionDeLaSalida == ubicacionDelJugador);
 
         if(termino){
             gano = ubicacionDeLaSalida == ubicacionDelJugador;
