@@ -11,6 +11,8 @@ public class PacSim {
     private Tablero tablero;
     private Pac pac = new Pac();
 
+    private boolean gano;
+
     public PacSim(){
         iniciarPacsim();
     }
@@ -30,8 +32,21 @@ public class PacSim {
         return pac.obtenerEscudo();
     }
 
+    public boolean obtenerResultado(){
+        return this.gano;
+    }
+
     public boolean termino(){
-        return (pac.estaVivo() && !(ubicacionDeLaSalida == ubicacionDelJugador));
+        boolean termino;
+
+
+        termino = (!pac.estaVivo() || ubicacionDeLaSalida == ubicacionDelJugador);
+
+        if(termino){
+            gano = ubicacionDeLaSalida == ubicacionDelJugador;
+        }
+
+        return termino;
     }
 
     public Tablero obtenerTablero(){

@@ -41,6 +41,10 @@ public class ArmadorDeTablero {
         return this.ubicacionDeLaSalida;
     }
 
+    /**
+     * ADAPTA LAS COORDENADAS DEL TABLERO BASADAS EN UN INDICE AL TIPO FILA - COLUMNA
+     * */
+
     private void adaptarTablero() {
         filas = this.lectorDeTablero.obtenerFilasDelTablero();
         columnas = this.lectorDeTablero.obtenerColumnasDelTablero();

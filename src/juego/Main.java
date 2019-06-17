@@ -39,6 +39,16 @@ public class Main {
 			imprimirTablero();
 			System.out.println("Ingrese la letra de la direccion donde quiera ir: ");
 		}
+		System.out.println("==========JUEGO TERMINADO =========");
+		boolean gano = pacsim.obtenerResultado();
+		if(gano){
+
+			System.out.println("Ganaste!, encontraste la salida y lograste que Pac saliera, gracias por jugar :D");
+		}else{
+			System.out.println("Perdiste!, Pac se quedo sin vidas :(, volve a intentarlo devuelta!");
+		}
+
+
 	}
 	
 	private static void iniciarJuego() {
