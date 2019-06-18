@@ -136,10 +136,10 @@ public class ArmadorDeTablero {
         for(char hayPared : ubicacionDeParedes.toCharArray()){
             int[] coordenadas = this.obtenerCoordenadasPorIndice(posicion, columnas);
             if(hayPared == '0'){
-                this.tablero.agregarCasillero(coordenadas[0], coordenadas[1], new Casillero(false));
+                this.tablero.agregarCasillero(coordenadas[0], coordenadas[1], new Casillero(true));
 
             }else{
-                this.tablero.agregarCasillero(coordenadas[0], coordenadas[1], new Casillero(true));
+                this.tablero.agregarCasillero(coordenadas[0], coordenadas[1], new Casillero(false));
             }
             posicion++;
         }
