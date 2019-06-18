@@ -2,6 +2,8 @@ package tablero;
 
 import casillero.jugador.Pac;
 
+import java.util.Arrays;
+
 public class PacSim {
 
     private ArmadorDeTablero armadorDeTablero;
@@ -37,10 +39,10 @@ public class PacSim {
     }
 
     public boolean termino(){
-        boolean termino = (!pac.estaVivo() || ubicacionDeLaSalida == ubicacionDelJugador);
+        boolean termino = (!pac.estaVivo() || Arrays.equals(ubicacionDeLaSalida, ubicacionDelJugador));
 
         if(termino){
-            gano = ubicacionDeLaSalida == ubicacionDelJugador;
+            gano = pac.estaVivo();
         }
 
         return termino;
@@ -84,4 +86,5 @@ public class PacSim {
             tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha();
         }
     }
+
 }

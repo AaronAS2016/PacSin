@@ -44,6 +44,7 @@ public class Main {
 		if(gano){
 
 			System.out.println("Ganaste!, encontraste la salida y lograste que Pac saliera, gracias por jugar :D");
+			System.out.println("Puntaje final del jugador: " + pacsim.obtenerVidaDelJugador());
 		}else{
 			System.out.println("Perdiste!, Pac se quedo sin vidas :(, volve a intentarlo devuelta!");
 		}
