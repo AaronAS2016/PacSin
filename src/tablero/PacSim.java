@@ -67,7 +67,7 @@ public class PacSim {
     }
 
     public void moverJugadorDerecha() {
-        if ((ubicacionDelJugador[1] + 1) < tablero.obtenerCantidadDeColumnas() && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] + 1).estaLibre()){
+        if ((ubicacionDelJugador[1] + 1) <= tablero.obtenerCantidadDeColumnas() && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] + 1).estaLibre()){
             ubicacionDelJugador[1]++;
             tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
         }
