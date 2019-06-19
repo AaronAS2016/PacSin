@@ -28,4 +28,11 @@ public class Pac{
         return this.escudo > 0;
     }
 
+    public void modificarEscudo(int diferencia){
+        this.escudo = this.escudo + diferencia;
+    }
+
+    public void modificarVida(int diferencia){
+        this.vidas = this.vidas + diferencia;
+    }
 }

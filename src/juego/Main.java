@@ -57,7 +57,7 @@ public class Main {
 
 		System.out.println("============= PACSIM =============");
 		System.out.println("Bienvenido a Pacsin para jugar siga las instuccciones \ny muevase por el tablero, trate de encontrar la salida sin que Pac muera");
-		System.out.println("Suerte :)");
+		System.out.println("Suerte :D");
 		imprimirSeparador();
 
 	}
