@@ -1,7 +1,5 @@
 package casillero;
 
 public interface Ficha {
-    void aplicarEfecto();
-    boolean estaActiva();
-
+    void aplicarEfecto(Pac pac);
 }

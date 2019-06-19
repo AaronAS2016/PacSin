@@ -6,9 +6,11 @@ import java.util.List;
 public class ProvisionCompuesta implements Provision {
 
     private List<Provision> provisiones;
+    private boolean activa;
 
     public ProvisionCompuesta(){
         provisiones = new ArrayList<>();
+        activa = true;
     }
 
 
@@ -22,12 +24,14 @@ public class ProvisionCompuesta implements Provision {
     }
 
     @Override
-    public void aplicarEfecto() {
-
+    public void aplicarEfecto(Pac pac) {
+         for (Pac lista: provisiones) {
+             lista.aplicarEfecto(pac);
+         }
     }
 
     @Override
     public boolean estaActiva() {
-        return false;
+        return activa;
     }
 }

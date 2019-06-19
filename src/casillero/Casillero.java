@@ -27,11 +27,11 @@ public class Casillero {
         return this.fichasDelCasillero;
     }
 
-    public void usarFicha() {
+    public void usarFicha(Pac pac) {
         Iterator<Ficha> iteradorDeFichas = fichasDelCasillero.iterator();
         while (iteradorDeFichas.hasNext()) {
             Ficha ficha = iteradorDeFichas.next();
-            ficha.aplicarEfecto();
+            ficha.aplicarEfecto(pac);
         }
     }
 }

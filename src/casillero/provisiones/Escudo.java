@@ -3,7 +3,6 @@ package casillero.provisiones;
 public class Escudo implements Provision {
 
     private boolean activa;
-    private Pac pac;
 
     public Escudo(){
         activa = true;
@@ -11,15 +10,10 @@ public class Escudo implements Provision {
     }
 
     @Override
-    public int obtenerCantidadDeProvision() {
-        return 0;
-    }
-
-    @Override
-    public void aplicarEfecto() {
+    public void aplicarEfecto(Pac pac) {
         if (estaActiva()){
             this.activa = false;
-            pac.modificaEscudo(obtenerCantidadDeProvision());
+            pac.modificaEscudo(1);
         }
     }
 

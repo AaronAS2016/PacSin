@@ -5,15 +5,13 @@ import casillero.Ficha;
 public class Mina implements Ficha {
 
     private boolean activa;
-    private Pac pac;
 
     public Mina(){
         activa = true;
-        pac = new Pac();
     }
 
     @Override
-    public void aplicarEfecto() {
+    public void aplicarEfecto(Pac pac) {
         if(estaActiva()){
             this.activa = false;
             if (pac.tieneEscudo){

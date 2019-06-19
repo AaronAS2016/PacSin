@@ -11,15 +11,10 @@ public class Vitamina implements Provision {
     }
 
     @Override
-    public int obtenerCantidadDeProvision() {
-        return 0;
-    }
-
-    @Override
-    public void aplicarEfecto() {
+    public void aplicarEfecto(Pac pac) {
          if (estaActiva()){
             this.activa = false;
-            pac.modificaVida(obtenerCantidadDeProvision());
+            pac.modificaVida(1);
         }
     }
 
