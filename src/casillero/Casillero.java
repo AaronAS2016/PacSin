@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import casillero.jugador.Pac;
+
 public class Casillero {
 
     private boolean estaLibre;
@@ -23,7 +25,7 @@ public class Casillero {
         return this.estaLibre;
     }
 
-    public List verCasilleros() {
+    public List<Ficha> verCasilleros() {
         return this.fichasDelCasillero;
     }
 

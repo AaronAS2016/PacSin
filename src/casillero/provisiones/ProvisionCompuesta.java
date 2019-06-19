@@ -3,6 +3,8 @@ package casillero.provisiones;
 import java.util.ArrayList;
 import java.util.List;
 
+import casillero.jugador.Pac;
+
 public class ProvisionCompuesta implements Provision {
 
     private List<Provision> provisiones;
@@ -19,13 +21,8 @@ public class ProvisionCompuesta implements Provision {
     }
 
     @Override
-    public int obtenerCantidadDeProvision() {
-        return 0;
-    }
-
-    @Override
     public void aplicarEfecto(Pac pac) {
-         for (Pac lista: provisiones) {
+         for (Provision lista: provisiones) {
              lista.aplicarEfecto(pac);
          }
     }
