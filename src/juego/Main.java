@@ -115,14 +115,14 @@ public class Main {
 				}
 
 				if(i == (coordenadasDelJugador[0] - 1) && j == (coordenadasDelJugador[1] - 1)){
-					tableroImprimibles[i][j] = "J";
+					tableroImprimibles[i][j] = "J ";
 				}else if(i == coordenadasDeLaSalida[0] - 1 && j == coordenadasDeLaSalida[1] -1 ){
-					tableroImprimibles[i][j] = "S";
+					tableroImprimibles[i][j] = "S ";
 				}else{
 					if (casilleros[i][j].estaLibre()) {
-						tableroImprimibles[i][j] = " ";
+						tableroImprimibles[i][j] = "  ";
 					}else{
-						tableroImprimibles[i][j] = "X";
+						tableroImprimibles[i][j] = "X ";
 					}
 				}
 
