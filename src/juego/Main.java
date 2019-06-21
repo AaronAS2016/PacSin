@@ -19,6 +19,9 @@ public class Main {
 
 	public static void main (String[] args) {
 		iniciarJuego();
+		
+		limpiarConsola();
+		
 		imprimirEstadistica();
 		imprimirTablero();
 		imprimirControles();
@@ -26,6 +29,8 @@ public class Main {
 		BufferedReader entradaDelUsuario =
 				new BufferedReader(new InputStreamReader(System.in));
 		while(!pacsim.termino()){
+			
+			limpiarConsola();
 
 			String direccion = null;
 			try {
@@ -174,7 +179,13 @@ public class Main {
 		System.out.println();
 	}
 	
-	
+	private static void limpiarConsola(){
+		try {
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		} catch (Exception e){
+			
+		}
+	} 
 	
 
 }
