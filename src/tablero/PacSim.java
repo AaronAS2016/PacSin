@@ -60,31 +60,43 @@ public class PacSim {
     }
 
     public void moverJugadorIzquierda() {
-        if(ubicacionDelJugador[1] - 1 > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] - 1 ).estaLibre()){
+    	if(ubicacionDelJugador[1] - 1 > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] - 1 ).estaLibre()){
             ubicacionDelJugador[1]--;
-            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
+            System.out.println("El jugador se mueve hacia la izquierda");
+        }else{
+        	System.out.println( "Hay una pared a la izquierda, no se puede avanzar." );
         }
+		tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
     public void moverJugadorDerecha() {
         if ((ubicacionDelJugador[1] + 1) <= tablero.obtenerCantidadDeColumnas() && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] + 1).estaLibre()){
             ubicacionDelJugador[1]++;
-            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
+            System.out.println("El jugador se mueve hacia la derecha");
+        }else{
+        	System.out.println( "Hay una pared a la derecha, no se puede avanzar." );
         }
+        tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
     public void moverJugadorArriba() {
         if ((ubicacionDelJugador[0] - 1) > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0] - 1, ubicacionDelJugador[1]).estaLibre()){
             ubicacionDelJugador[0]--;
-            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
+            System.out.println("El jugador se mueve hacia arriba");
+        }else {
+        	System.out.println( "Hay una pared arriba, no se puede avanzar." );
         }
+        tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
     public void moverJugadorAbajo() {
         if ((ubicacionDelJugador[0] + 1) <= tablero.obtenerCantidadDeFilas() && tablero.obtenerCasillero(ubicacionDelJugador[0] + 1, ubicacionDelJugador[1]).estaLibre()){
             ubicacionDelJugador[0]++;
-            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
+            System.out.println("El jugador se mueve hacia abajo");
+        }else{
+        	System.out.println( "Hay una pared abajo, no se puede avanzar." );
         }
+        tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
 }

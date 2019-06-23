@@ -159,16 +159,13 @@ public class Main {
 	private static void moverJugador(String direccion) {
 
 		if (direccion.equals("A")){
-			System.out.println("El jugador se mueve hacia la izquierda");
 			pacsim.moverJugadorIzquierda();
 		}else if(direccion.equals("D")){
 			System.out.println("El jugador se mueve hacia la derecha");
 			pacsim.moverJugadorDerecha();
 		}else if(direccion.equals("W")){
-			System.out.println("El jugador se mueve hacia arriba");
 			pacsim.moverJugadorArriba();
 		}else if(direccion.equals("S")){
-			System.out.println("El jugador se mueve hacia abajo");
 			pacsim.moverJugadorAbajo();
 		}else{
 			System.out.println("Por favor ingrese un movimiento valido");
