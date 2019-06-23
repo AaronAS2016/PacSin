@@ -161,7 +161,6 @@ public class Main {
 		if (direccion.equals("A")){
 			pacsim.moverJugadorIzquierda();
 		}else if(direccion.equals("D")){
-			System.out.println("El jugador se mueve hacia la derecha");
 			pacsim.moverJugadorDerecha();
 		}else if(direccion.equals("W")){
 			pacsim.moverJugadorArriba();
