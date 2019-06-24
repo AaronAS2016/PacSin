@@ -1,8 +1,8 @@
-<<<<<<< HEAD
-"# PacSin" 
+
+# PacSin
 
 
-##DESCRIPCION DE CLASES
+## DESCRIPCIÓN DE CLASES
 
     #Pac:
         Es el personaje del usuario, almacena las vidas y escudos, las modifica, y se asegura que tenga los recursos para seguir jugando.
@@ -35,9 +35,7 @@
         En base a lo que recibe el lector de tablero, este adapta la información en una manera que, como se maneja el lenguaje, sea mas fácil usarla.
 
     #PacSim:
-        Se encarga de la lógica de todo el juego: leer el tablero, posicionar los objetos en el mismo (paredes, provisiones, minas, al jugador, entrada y salida), y  en base al estado del jugador, verificar si se puede seguir jugando o cortar el juego.
-
-=======
+        Se encarga de la lógica de todo el juego: leer el tablero, posicionar los objetos en el mismo (paredes, provisiones, minas, al jugador, entrada y salida), y  en base al estado del jugador, verificar si se puede seguir jugando o cortar el 
 
 
 
@@ -59,4 +57,3 @@ Para la interfaz del PacSim decidimos utilizar una interfaz hecha en consola.
 
 
 Luego finalmente para administrar la lógica principal del juego, decidimos crear la clase Pacsim que se comunica que las demás clases para encapsular la aplicación y asilarla de la interfaz gráfica, para poder reemplazarla más fácilmente en un futuro.
->>>>>>> a3483d4a7061e46419d24cd8dd7d02f6ac351198
