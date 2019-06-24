@@ -4,6 +4,8 @@ import casillero.jugador.Pac;
 
 import java.util.Arrays;
 
+import excepciones.ExcepcionesPared;
+
 public class PacSim {
 
     private ArmadorDeTablero armadorDeTablero;
@@ -12,7 +14,7 @@ public class PacSim {
     private int[] ubicacionDeLaSalida;
     private Tablero tablero;
     private Pac pac = new Pac();
-
+    
     private boolean gano;
 
     public PacSim(){
@@ -59,44 +61,59 @@ public class PacSim {
         return this.ubicacionDeLaSalida;
     }
 
-    public void moverJugadorIzquierda() {
-    	if(ubicacionDelJugador[1] - 1 > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] - 1 ).estaLibre()){
-            ubicacionDelJugador[1]--;
-            System.out.println("El jugador se mueve hacia la izquierda");
+    public void moverJugadorIzquierda() throws ExcepcionesPared {
+    	
+		if(ubicacionDelJugador[1] - 1 <= 0 ){
+			throw new ExcepcionesPared ("No se puede salir del tablero");
+			
+		}else if ( !tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] - 1 ).estaLibre()){
+			throw new ExcepcionesPared("Hay una pared a la izquierda. No es posible avanzar");
+			
+		}else {
+			ubicacionDelJugador[1]--;
+			tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);    			
+		}
+	}
+    	
+    
+
+    public void moverJugadorDerecha()throws ExcepcionesPared  {
+       
+    	if ((ubicacionDelJugador[1] + 1) > tablero.obtenerCantidadDeColumnas() ) {
+        	throw new ExcepcionesPared("No se puede salir del tablero");
+        
+        }else if( !tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] + 1).estaLibre()){
+            throw new ExcepcionesPared("Hay una pared a la derecha. No es posible avanzar");
+            
         }else{
-        	System.out.println( "Hay una pared a la izquierda, no se puede avanzar." );
+        	ubicacionDelJugador[1]++;
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
         }
-		tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
-    public void moverJugadorDerecha() {
-        if ((ubicacionDelJugador[1] + 1) <= tablero.obtenerCantidadDeColumnas() && tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1] + 1).estaLibre()){
-            ubicacionDelJugador[1]++;
-            System.out.println("El jugador se mueve hacia la derecha");
+    public void moverJugadorArriba() throws ExcepcionesPared {
+        if ((ubicacionDelJugador[0] - 1) <= 0 ){
+        	throw new ExcepcionesPared("No se puede salir del tablero");
+        	
+        }else if(!tablero.obtenerCasillero(ubicacionDelJugador[0] - 1, ubicacionDelJugador[1]).estaLibre()){
+        	throw new ExcepcionesPared ("Hay una pared arriba. No es posible avanzar");
         }else{
-        	System.out.println( "Hay una pared a la derecha, no se puede avanzar." );
-        }
-        tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
-    }
-
-    public void moverJugadorArriba() {
-        if ((ubicacionDelJugador[0] - 1) > 0 && tablero.obtenerCasillero(ubicacionDelJugador[0] - 1, ubicacionDelJugador[1]).estaLibre()){
             ubicacionDelJugador[0]--;
-            System.out.println("El jugador se mueve hacia arriba");
-        }else {
-        	System.out.println( "Hay una pared arriba, no se puede avanzar." );
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
         }
-        tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
-    public void moverJugadorAbajo() {
-        if ((ubicacionDelJugador[0] + 1) <= tablero.obtenerCantidadDeFilas() && tablero.obtenerCasillero(ubicacionDelJugador[0] + 1, ubicacionDelJugador[1]).estaLibre()){
-            ubicacionDelJugador[0]++;
-            System.out.println("El jugador se mueve hacia abajo");
+    public void moverJugadorAbajo() throws ExcepcionesPared {
+        if ((ubicacionDelJugador[0] + 1) > tablero.obtenerCantidadDeFilas() ){
+        	throw new ExcepcionesPared("No se puede salir del tablero");
+        
+        } else if ( !tablero.obtenerCasillero(ubicacionDelJugador[0] + 1, ubicacionDelJugador[1]).estaLibre()){
+        	throw new ExcepcionesPared ("Hay una pared abajo. No es posible avanzar");
+  
         }else{
-        	System.out.println( "Hay una pared abajo, no se puede avanzar." );
+            ubicacionDelJugador[0]++;
+            tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
         }
-        tablero.obtenerCasillero(ubicacionDelJugador[0], ubicacionDelJugador[1]).usarFicha(pac);
     }
 
 }

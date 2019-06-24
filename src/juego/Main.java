@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
+import excepciones.ExcepcionesPared;
+
 public class Main {
 
 
@@ -146,30 +148,39 @@ public class Main {
 			}
 			System.out.println(fila );
 		}
-
-
-
-
-
-
-
-
 	}
 	
+	
+	
 	private static void moverJugador(String direccion) {
+		
+		try{
+			if (direccion.equals("A")){
+				pacsim.moverJugadorIzquierda();
+				System.out.println("El jugador se movio hacia la izquierda");
+				
+			}else if(direccion.equals("D")){
+				pacsim.moverJugadorDerecha();
+				System.out.println("El jugador se mueve hacia la derecha");
+				
+			}else if(direccion.equals("W")){
+				pacsim.moverJugadorArriba();
+				System.out.println("El jugador se mueve hacia arriba");
+				
+			}else if(direccion.equals("S")){
+				pacsim.moverJugadorAbajo();
+				System.out.println("El jugador se mueve hacia abajo");
 
-		if (direccion.equals("A")){
-			pacsim.moverJugadorIzquierda();
-		}else if(direccion.equals("D")){
-			pacsim.moverJugadorDerecha();
-		}else if(direccion.equals("W")){
-			pacsim.moverJugadorArriba();
-		}else if(direccion.equals("S")){
-			pacsim.moverJugadorAbajo();
-		}else{
-			System.out.println("Por favor ingrese un movimiento valido");
+			}else{
+				throw new ExcepcionesPared("Por favor ingrese un movimiento valido");
+			}
+			
+		}catch ( ExcepcionesPared e ){
+			System.out.println(e.getMessage());
 		}
+		
 	}
+	
 	
 	private static void imprimirSeparador() {
 		System.out.println();
