@@ -21,19 +21,12 @@ public class Main {
 
 	public static void main (String[] args) {
 		iniciarJuego();
-		
-		limpiarConsola();
-		
-		imprimirEstadistica();
-		imprimirTablero();
-		imprimirControles();
 
+		imprimirInterfaz();
 		BufferedReader entradaDelUsuario =
 				new BufferedReader(new InputStreamReader(System.in));
 		while(!pacsim.termino()){
 			
-			limpiarConsola();
-
 			String direccion = null;
 			try {
 				direccion = entradaDelUsuario.readLine();
@@ -42,8 +35,7 @@ public class Main {
 			}
 
 			moverJugador(direccion.toUpperCase());
-			imprimirEstadistica();
-			imprimirTablero();
+			imprimirInterfaz();
 			System.out.println("Ingrese la letra de la direccion donde quiera ir: ");
 		}
 		System.out.println("==========JUEGO TERMINADO =========");
@@ -57,6 +49,12 @@ public class Main {
 		}
 
 
+	}
+
+	private static void imprimirInterfaz(){
+		imprimirEstadistica();
+		imprimirTablero();
+		imprimirControles();
 	}
 	
 	private static void iniciarJuego() {
@@ -176,7 +174,7 @@ public class Main {
 			}
 			
 		}catch ( ExcepcionesPared e ){
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		
 	}
@@ -185,14 +183,6 @@ public class Main {
 	private static void imprimirSeparador() {
 		System.out.println();
 	}
-	
-	private static void limpiarConsola(){
-		try {
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-		} catch (Exception e){
-			
-		}
-	} 
-	
+
 
 }
